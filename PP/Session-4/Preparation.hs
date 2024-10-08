@@ -6,6 +6,9 @@ onlytwo :: [a] -> Bool
 onlytwo [_, _] = True
 onlytwo _      = False
 
+onlytwo1 (x1:(x2:[])) = True
+onlytwo1 _            = False
+
 
 
 -- The dot product of two pairs of numbers (a, b) and (c, d) is the number a · c + b · d. Define, using
@@ -17,5 +20,11 @@ onlytwo _      = False
 alldots :: [(Int, Int)] -> [(Int, Int)] -> [Int]
 alldots xs ys = [a * c + b * d | (a, b) <- xs, (c, d) <- ys]
 
+alldots1 :: (Num a) => [(a, a)] -> [(a, a)] -> [a]
+alldots1 xs ys = [a * c + b * d | (a, b) <- xs, (c, d) <- ys]
+
 test1 = alldots [(1, 2), (3, 4)] [(5, 6), (7, 8)]
 test2 = alldots [(0, 1), (1, 0)] [(1, 1), (2, 2)]
+
+test3 = alldots1 [(1, 2), (3, 4)] [(5, 6), (7, 8)]
+test4 = alldots1 [(2, 1), (1, 0)] [(1, 1), (2, 2)]
