@@ -21,3 +21,7 @@ positions str = map (\x -> fromEnum x - 96) str
 
 sumsq :: Int -> Int
 sumsq n = foldr (+) 0 (map (\x -> x^2) [1..n])
+
+-- sumsq without the use of map
+sumsq1 :: (Num a, Enum a) => a -> a
+sumsq1 n = foldr ((+) . (^2)) 0 [1..n]
