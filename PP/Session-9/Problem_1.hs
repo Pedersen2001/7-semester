@@ -1,0 +1,22 @@
+ -- Here is a program.
+-- main = do
+--   w <− getLine
+--   loop( (read w) :: Int)
+--   where
+--      loop 1 = putStr (show 1)
+--      loop x = do
+--      putStr (show x)
+--      if even x
+--          then loop (x ‘ div ‘ 2)
+--          else loop (3∗x + 1)
+-- Do not run it! Try to find out what it does.
+
+
+-- First, the input from the user will be read and stored in the variable w.
+-- Then, the loop function will be called with the input as an argument.
+-- The loop function will check if the input is 1. If it is, it will print 1.
+-- If the input is not 1, it will print the input and then check if the input is even.
+-- If the input is even, it will call the loop function with the input divided by 2.
+-- If the input is odd, it will call the loop function with the input multiplied by 3 and added 1.
+-- The loop function will continue to call itself recursively until the input is 1.
+-- Therefore, the program will print the input and then either divide it by 2 or multiply it by 3 and add 1 until it reaches 1.
