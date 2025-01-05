@@ -103,7 +103,23 @@ also.
 that pairup (WS (4,”horse”)) (WS (5,”plonk”)) gives us WS ((4,5),”horse”).
 -}
 
+newtype WrapString a = WS (a,String) deriving Show
 
+instance Functor WrapString where
+  fmap f (WS (x,s)) = WS (f x,s)
+
+instance Applicative WrapString where
+  pure x = WS (x, "")
+  (WS (f, sf)) <*> (WS (x, sx)) = WS (f x, sf ++ sx)
+
+instance Monad WrapString where
+  return = pure
+  WS (x,sx) >>= f = f x
+
+pairup x y = do
+  xx <- x
+  yy <- y
+  return ((xx, yy))
 
 {- Problem 5:
 Here are four types. For each of the four cases, find an expression or function definition in Haskell that
